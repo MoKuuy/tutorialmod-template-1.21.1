@@ -21,6 +21,7 @@ public class ModItemGroup {
                         entries.add(Items.BOOK);
                         entries.add(Blocks.GRASS_BLOCK);
                         entries.add(ModBlocks.Ice_Ether_Block);
+                        entries.add(ModItems.PROSPECTOR);
                     }).build());
 
     public static void registerModItemGroup() {
