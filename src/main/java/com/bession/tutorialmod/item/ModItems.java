@@ -1,6 +1,6 @@
 package com.bession.tutorialmod.item;
 
-import com.bession.tutorialmod.Tutorialmod;
+import com.bession.tutorialmod.TutorialMod;
 
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
@@ -21,7 +21,7 @@ public class ModItems {
     }
 
     private static Item registerItem(String name, Item item) {
-        return Registry.register(Registries.ITEM,Identifier.of(Tutorialmod.MOD_ID,name),item);
+        return Registry.register(Registries.ITEM,Identifier.of(TutorialMod.MOD_ID,name),item);
     }
 
     public static void registerModItems() {

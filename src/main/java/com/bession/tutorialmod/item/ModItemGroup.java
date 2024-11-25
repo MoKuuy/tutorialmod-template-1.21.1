@@ -1,5 +1,5 @@
 package com.bession.tutorialmod.item;
-import com.bession.tutorialmod.Tutorialmod;
+import com.bession.tutorialmod.TutorialMod;
 import com.bession.tutorialmod.block.ModBlocks;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.block.Blocks;
@@ -14,7 +14,7 @@ import net.minecraft.util.Identifier;
 
 public class ModItemGroup {
     public static final ItemGroup TUTORIAL_GROUP = Registry.register(Registries.ITEM_GROUP,
-            Identifier.of(Tutorialmod.MOD_ID,"tutorial_group"),
+            Identifier.of(TutorialMod.MOD_ID,"tutorial_group"),
             FabricItemGroup.builder().displayName(Text.translatable("tutorial_group"))
                     .icon(()->new ItemStack(ModItems.ICE_ETHER)).entries((displayContext, entries) -> {
                         entries.add(ModItems.ICE_ETHER);

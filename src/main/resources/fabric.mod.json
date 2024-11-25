@@ -16,13 +16,13 @@
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"com.bession.tutorialmod.Tutorialmod"
+          "com.bession.tutorialmod.TutorialMod"
 		],
 		"client": [
-			"com.bession.tutorialmod.Tutorialmodclient"
+			"com.bession.tutorialmod.TutorialModClient"
 		],
 		"fabric-datagen": [
-			"com.bession.tutorialmod.TutorialmodDataGenerator"
+			"com.bession.tutorialmod.TutorialModDataGenerator"
 		]
 	},
 	"mixins": [
