@@ -1,5 +1,5 @@
 package com.bession.tutorialmod.block;
-import com.bession.tutorialmod.Tutorialmod;
+import com.bession.tutorialmod.TutorialMod;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
@@ -16,11 +16,11 @@ public class ModBlocks {
 
     private static Block registerBlock(String name, Block block) {
         registerBlockItem(name, block);
-        return Registry.register(Registries.BLOCK,Identifier.of(Tutorialmod.MOD_ID,name),block);
+        return Registry.register(Registries.BLOCK,Identifier.of(TutorialMod.MOD_ID,name),block);
     }
 
     private static Item registerBlockItem(String name, Block block) {
-        return Registry.register(Registries.ITEM, Identifier.of(Tutorialmod.MOD_ID,name),
+        return Registry.register(Registries.ITEM, Identifier.of(TutorialMod.MOD_ID,name),
                 new BlockItem(block,new Item.Settings()));
     }
 
