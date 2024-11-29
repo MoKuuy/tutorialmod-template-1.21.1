@@ -2,5 +2,7 @@
   "item.tutorialmod.ice_ether":"Ice_Ether",
   "block.tutorialmod.ice_ether_block":"Ice Ether Block",
   "itemGroup.tutorial_grou": "tutorial group",
-  "item.tutorialmod.prospector": "Prospector"
+  "item.tutorialmod.prospector": "Prospector",
+  "item.tutorialmod.cheese": "cheese",
+  "item.tutorialmod.strawberry": "strawberry"
 }

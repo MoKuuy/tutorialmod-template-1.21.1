@@ -1,8 +1,8 @@
 package com.bession.tutorialmod.item.custom;
 
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -14,39 +14,65 @@ import net.minecraft.world.World;
 
 public class Prospector extends Item {
     public Prospector(Settings settings) {
-        super(new Settings());
+        super(new Settings().maxDamage(127));
     }
 
     @Override
     public ActionResult useOnBlock(ItemUsageContext context) {
         World world = context.getWorld();
-        BlockPos blockPos = context.getBlockPos();
+        BlockPos pos = context.getBlockPos();
         PlayerEntity player = context.getPlayer();
+
         if (!world.isClient()) {
             boolean foundBlock = false;
-            for (int i = -64; i <= blockPos.getY() + 64; i++) {
-                BlockState state = context.getWorld().getBlockState(blockPos.down(i));
-                if (isRightBlock(state)) {
-                    outputMessage(blockPos.down(i), player, state.getBlock());
-                    foundBlock = true;
-                    break;
+            if (!Screen.hasShiftDown()) {
+                //模糊搜索
+                for (int i = 0; i <= pos.getY() + 64; i++) {
+                    for (int j = 0; j < 5; j++) {
+                        for (int k = 0; k < 5; k++) {
+                            BlockPos pos1 = pos.down(i).north(j).east(k);
+                            BlockState blockState = world.getBlockState(pos1);
+                            String name = blockState.getBlock().getName().getString();
+
+                            if (isRightBlock(blockState)) {
+                                player.sendMessage(Text.of("Found" + name + "!"));
+                                foundBlock = true;
+                                break;
+                            }
+                        }
+                    }
+                }
+                if (!foundBlock) {
+                    player.sendMessage(Text.of("No Ore found!"));
+                }
+            } else {
+                //精确查找
+                for (int i = 0; i <= pos.getY() + 64; i++) {
+                    BlockPos pos1 = pos.down(i);
+                    BlockState blockState = world.getBlockState(pos1);
+                    String name = blockState.getBlock().getName().getString();
+                    if (isRightBlock(blockState)) {
+                        player.sendMessage(Text.of("Found" + name + "!"));
+                        foundBlock = true;
+                        break;
+
+                    }
+                    if (!foundBlock) {
+                        player.sendMessage(Text.of("No Ore found!"));
+                    }
                 }
             }
-            if (!foundBlock) {
-                player.sendMessage(Text.literal("NO Ore Found!"));
-            }
-        }
-        context.getStack().damage(1, context.getPlayer(), EquipmentSlot.MAINHAND);
+        context.getStack().damage(1, player ,EquipmentSlot.MAINHAND);
         return ActionResult.SUCCESS;
+        }
+        return super.useOnBlock(context);
     }
 
-
-    private void outputMessage(BlockPos down, PlayerEntity player, Block block) {
-        player.sendMessage(Text.literal("Found"+block.asItem().getName().getString()+"at"+"("+down.getX()+
-                ","+down.getY()+","+down.getZ()+")!"),false);
-    }
-
-    private boolean isRightBlock(BlockState state){
-        return state.isOf(Blocks.IRON_ORE) || state.isOf(Blocks.DIAMOND_ORE);
+    private boolean isRightBlock(BlockState blockState){
+        if (blockState.getBlock() == Blocks.DIAMOND_ORE || blockState.isOf(Blocks.IRON_ORE)){
+            return true;
+        }else {
+            return false;
+        }
     }
 }

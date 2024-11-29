@@ -17,7 +17,11 @@ public class ModItems {
 
     public static final Item ICE_ETHER = registerItem("ice_ether",new Item(new Item.Settings()));
 
-    public static final Item PROSPECTOR = registerItem("prospector",new Prospector(new Item.Settings().maxDamage(64)));
+    public static final Item PROSPECTOR = registerItem("prospector",new Prospector(new Item.Settings()));
+
+    public static final Item CHEESE = registerItem("cheese",new Item(new Item.Settings().food(ModFoodComponents.CHEESE)));
+
+    public static final Item STRAWBERRY = registerItem("strawberry",new Item(new Item.Settings().food(ModFoodComponents.STRAWBERRY)));
 
     private static void addItemsToIG(FabricItemGroupEntries fabricItemGroupEntries){
         fabricItemGroupEntries.add(ICE_ETHER);
