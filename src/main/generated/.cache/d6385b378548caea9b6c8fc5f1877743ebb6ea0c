@@ -1,0 +1,4 @@
+// 1.21.1	2024-12-05T01:37:40.2016334	tutorial mod/Tags for minecraft:block
+cebf0cb867d0ccd188be18c62c30738cdb3201df data\tutorial\tags\block\ore_list.json
+49efc908edb0e9ab8b5d821aee32ffa076ee6d9b data\minecraft\tags\block\mineable\pickaxe.json
+49efc908edb0e9ab8b5d821aee32ffa076ee6d9b data\minecraft\tags\block\needs_iron_tool.json

@@ -1,0 +1,9 @@
+{
+  "values": [
+    "tutorialmod:ice_ether_block",
+    "#minecraft:coal_ores",
+    "#minecraft:iron_ores",
+    "#minecraft:gold_ores",
+    "#minecraft:diamond_ores"
+  ]
+}

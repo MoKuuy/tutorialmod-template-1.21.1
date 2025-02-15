@@ -1,0 +1,10 @@
+{
+  "block.tutorialmod.ice_ether_block": "Ice Ether Block",
+  "item.tutorialmod.cheese": "Cheese",
+  "item.tutorialmod.ice_ether": "Ice Ether",
+  "item.tutorialmod.prospector": "Prospector",
+  "item.tutorialmod.prospector.shift_tooltip": "A tool used to find ores.",
+  "item.tutorialmod.prospector.tooltip": "Hold §dSHIFT§r for more information",
+  "item.tutorialmod.strawberry": "Strawberry",
+  "itemGroup.tutorial_group": "Tutorial Group"
+}

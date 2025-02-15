@@ -3,6 +3,7 @@ package com.bession.tutorialmod;
 import com.bession.tutorialmod.block.ModBlocks;
 import com.bession.tutorialmod.item.ModItemGroup;
 import com.bession.tutorialmod.item.ModItems;
+import com.bession.tutorialmod.tags.ModBlockTags;
 import net.fabricmc.api.ModInitializer;
 
 import org.slf4j.Logger;
@@ -20,6 +21,7 @@ public class TutorialMod implements ModInitializer {
 		ModItems.registerModItems();
 		ModItemGroup.registerModItemGroup();
 		ModBlocks.registerModBlock();
+		ModBlockTags.registerMOdBlockTags();
 
 	}
 }

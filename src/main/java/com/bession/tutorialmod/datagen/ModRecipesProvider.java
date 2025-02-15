@@ -3,6 +3,7 @@ package com.bession.tutorialmod.datagen;
 import com.bession.tutorialmod.TutorialMod;
 import com.bession.tutorialmod.block.ModBlocks;
 import com.bession.tutorialmod.item.ModItems;
+import com.bession.tutorialmod.tags.ModItemTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.data.server.recipe.RecipeExporter;
@@ -43,10 +44,10 @@ public class ModRecipesProvider extends FabricRecipeProvider {
         //冰以太营火
         offerFoodCookingRecipe(exporter,"campfire_cooking", RecipeSerializer.CAMPFIRE_COOKING, CampfireCookingRecipe::new,
                 600, Items.ICE,ModItems.ICE_ETHER,0.35f);
-        //甜菜根有序生成糖
+        //有序生成糖
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Items.SUGAR,3)
                 .pattern("###")
-                .input('#', Ingredient.ofItems(Items.BEETROOT))
+                .input('#', ModItemTags.SUGAR_TAG)
                 .criterion("has_item", RecipeProvider.conditionsFromItem(Items.BEETROOT))
                 .offerTo(exporter, Identifier.of(TutorialMod.MOD_ID,"beetroot_to_sugar"));
         //矿石探测器的有序生成

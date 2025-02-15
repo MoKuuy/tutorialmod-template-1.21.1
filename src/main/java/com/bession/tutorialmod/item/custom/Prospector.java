@@ -1,7 +1,7 @@
 package com.bession.tutorialmod.item.custom;
 
+import com.bession.tutorialmod.tags.ModBlockTags;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.player.PlayerEntity;
@@ -39,7 +39,7 @@ public class Prospector extends Item {
                             String name = blockState.getBlock().getName().getString();
 
                             if (isRightBlock(blockState)) {
-                                player.sendMessage(Text.of("Found" + name + "!"));
+                                player.sendMessage(Text.of("Found" + name + "!"+"("+pos1+")"));
                                 foundBlock = true;
                                 break;
                             }
@@ -73,7 +73,7 @@ public class Prospector extends Item {
     }
 
     private boolean isRightBlock(BlockState blockState){
-        if (blockState.getBlock() == Blocks.DIAMOND_ORE || blockState.isOf(Blocks.IRON_ORE)){
+        if (blockState.isIn(ModBlockTags.ORE_LIST)){
             return true;
         }else {
             return false;

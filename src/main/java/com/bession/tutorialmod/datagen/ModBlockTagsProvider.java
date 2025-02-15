@@ -1,6 +1,7 @@
 package com.bession.tutorialmod.datagen;
 
 import com.bession.tutorialmod.block.ModBlocks;
+import com.bession.tutorialmod.tags.ModBlockTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.registry.RegistryWrapper;
@@ -21,5 +22,14 @@ public class ModBlockTagsProvider extends FabricTagProvider.BlockTagProvider {
 
         getOrCreateTagBuilder(BlockTags.NEEDS_IRON_TOOL)
                 .add(ModBlocks.Ice_Ether_Block);
+
+        getOrCreateTagBuilder(ModBlockTags.ORE_LIST)
+                .add(ModBlocks.Ice_Ether_Block)
+                .forceAddTag(BlockTags.COAL_ORES)
+                .forceAddTag(BlockTags.IRON_ORES)
+                .forceAddTag(BlockTags.GOLD_ORES)
+                .forceAddTag(BlockTags.DIAMOND_ORES);
     }
+
+
 }
